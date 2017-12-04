@@ -1,0 +1,61 @@
+.jumbotron {
+	width: 85%;	
+	margin: auto;
+	margin-top: 5%;
+	box-shadow: 4px 4px 50px rgba(100, 100, 100, 0.5);
+}
+
+h1 {
+	text-shadow: 1px 1px 1px #FFFFFF, 2px 2px 2px gray, 1px 1px 1px black;
+}
+
+h2 {
+	text-shadow: 1px 1px 1px #FFFFFF, 2px 2px 2px gray, 1px 1px 1px black;
+}
+
+a {
+	border-radius: 4px;
+	background-color: rgba(50, 50, 50, 0.5);
+	margin: 4px;
+	text-align: center;
+	color: black;
+	font-size: 2rem;
+	padding: 2px;
+}
+
+.login {
+	border-radius: 4px;
+	background-color: rgba(50, 50, 50, 0.5);
+	margin: 4px;
+	text-align: center;
+	color: black;
+	font-size: 2rem;
+	padding: 2px;
+}
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+
+a:active {
+	color: black;	
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+	background-color: rgba(50, 50, 50, 0.8);
+}
+
+.registerForm {
+	visibility: hidden;
+}
+
+
+

@@ -1,0 +1,23 @@
+{
+  "name": "attention",
+  "version": "1.0.0",
+  "description": "Realtime monitoring student understanding & intrests",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OM",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "d3": "^4.11.0",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "socket.io": "^2.0.4",
+    "vue": "^2.5.3",
+    "vue-loader": "^13.5.0",
+    "vue-router": "^3.0.1",
+    "vue-server-renderer": "^2.5.8",
+    "webpack": "^3.8.1"
+  }
+}

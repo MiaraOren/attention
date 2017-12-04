@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link href="/welcome.css" rel="stylesheet" type="text/css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>	
+
+	<title>
+		Attention - Home
+	</title>
+
+</head>
+
+<body>
+	<div class="container-fluid">
+		<div class="jumbotron">
+			<h1>Welcome to Attention</h1>
+			<h3><small>improves the way we teach</small></h3> 
+			<form id="loginForm">
+				<div class="form-group">
+					<label for="inputUsername">Username</label>
+					<input type="text" class="form-control" id="inputUsername" placeholder="Enter Username">
+				</div>
+				<div class="form-group">
+					<label for="InputPassword">Password</label>
+					<input type="password" class="form-control" id="InputPassword" placeholder="Password">
+				</div>
+				<div class="form-check">
+					<label class="form-check-label">
+					<input type="checkbox" class="form-check-input">
+					Check me out
+					</label>
+				</div>
+				<button id="submitLogin" type="submit" class="btn btn-primary">Submit</button>
+				
+			</form>
+			<button id="registerButton">Register</button>
+			<form class="registerForm">
+				
+				<div class="form-group">
+					<label for="exampleInputEmail1">Username</label>
+					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label>
+					<input type="password" class="form-control" id="InputPassword1" placeholder="Password">
+				</div>
+				<div class="form-group">
+						<label for="exampleInputPassword1">Enter Password Again</label>
+						<input type="password" class="form-control" id="InputPassword2" placeholder="Validate Password">
+					</div>
+				<div class="form-check">
+					<label class="form-check-label">
+					<input type="checkbox" class="form-check-input">
+					Check me out
+					</label>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+			<script>
+				$(document).ready(function() {
+					$("#registerButton").on('click', function() {
+
+						if ($(".registerForm")[0].style.visibility == 'visible') {
+							$(".registerForm").css('visibility', 'hidden');
+						} else {
+							$(".registerForm").css('visibility', 'visible');
+						}
+					});
+
+					$("#loginForm").submit(function(event) {
+						event.preventDefault();
+						var request = $.ajax({
+							url: "/login",
+							method: "POST",
+							data: {user:$(this).find("input[id='inputUsername']").val(),
+								   pass:$(this).find("input[id='InputPassword']").val()},
+							success: 
+								console.log("logged")
+						});
+
+						request.done(function(msg) {
+							console.log(msg);
+						}).fail(function(error) {
+							console.log(error.responseText);
+							$("#loginForm").find("input[id='inputUsername']")[0].value = '';
+							$("#loginForm").find("input[id='InputPassword']")[0].value = '';
+							
+							$("#loginForm").find("input").css('border-bottom', '2px red solid');
+							setTimeout(function() {
+								$("#loginForm").find("input").css('border-bottom', '1px #ccc solid');
+							}, 500);
+						});
+					
+					});
+				});
+
+			</script>
+
+		</div>
+	</div>
+		
+  
+	
+
+</body>
+
+</html>
